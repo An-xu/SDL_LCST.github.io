@@ -116,7 +116,7 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Notre Dame,</span>
+            <span class="author-block"><sup>1</sup>University of Notre Dame</span>
 <!--            <span class="author-block"><sup>2</sup>Shandong University</span>-->
 <!--            <span class="author-block"><sup>3</sup>Leibniz-Institut für Analytische Wissenschaften - ISAS e.V.</span>-->
           </div>
@@ -271,14 +271,12 @@
             <img src="./static/images/Figure1_4.png" alt="model image."/>
 
           </p>
-          Overview of our reconstruction-based anomaly detection method using a denoising autoencoder (DAE) as the reconstruction model.
-During training, the normal dataset X<sub>n</sub> is augmented with the proposed AIR enhancement pre-processinig strategy and corrupted to form the noisy normal dataset X<sub>n</sub>&prime; using simplex noise.
-The model is then trained by denoising X<sub>n</sub> and minimizing the fusion quality loss L<sub>FQ</sub> between the reconstruction <span style="position: relative; display: inline-block;">
-    <span style="position: absolute; top: -10px; left: 2px;">&Hat;</span>
-    X<sub>n</sub>
-</span> and the original normal dataset X<sub>n</sub>. During inference, the abnormal test dataset X<sub>a</sub> undergoes the same process.
-The anomalies in X<sub>a</sub> are expected to be poorly reconstructed, resulting in higher values in the L<sub>FQ</sub>-based anomaly map.
-The final anomaly map is thresholded for segmentation, with performance measured by DICE and AUPRC.
+          <strong>Schematic of the Closed-Loop Autonomous Experimental Workflow.</strong>
+            <strong>(A)</strong> The view of the complete system, showing the parallel array of five modules and the integrated fluid-handling capability.
+            <strong>(B)</strong> BO model update and recommend the most promising conditions for the subsequent experiment
+            <strong>(C)</strong> Through the graphical user interface (GUI), a user specifies the volume of each stock solution to be dispensed, allowing for the precise formulation of each sample's final composition
+            <strong>(D)</strong> A detailed view of a single module highlights the key components: a multi-port sample holder, photodiode detector, a Peltier element for rapid heating and cooling, and a heat sink for thermal stability.
+            This assembly enables automated, in-situ measurement of LCST by controlling both sample composition and temperature.
         </div>
       </div>
     </div>
@@ -287,139 +285,139 @@ The final anomaly map is thresholded for segmentation, with performance measured
 <!-- adding subtitle -->
       <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-<h2 class="title is-3">Results</h2>
-<head>
-    <title>Table Conversion</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        caption {
-            caption-side: top;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            padding: 10px;
-        }
-        .highlight {
-            background-color: gray;
-        }
-    </style>
-</head>
-<body>
-    <table>
-        <caption>Comparison with baselines in terms of DICE and AUPRC on BraTS21 and MSLUB using T2 modality in a <strong>cross-dataset</strong> setting. The model is trained on the IXI dataset, which contains only healthy samples. The best results for a given metric/dataset are bolded, and the second-best are underlined.</caption>
-        <thead>
-            <tr>
-                <th rowspan="2">Method</th>
-                <th colspan="2">BraTS21 (T2)</th>
-                <th colspan="2">MSLUB (T2)</th>
-            </tr>
-            <tr>
-                <th>DICE [%]</th>
-                <th>AUPRC [%]</th>
-                <th>DICE [%]</th>
-                <th>AUPRC [%]</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Thresh <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-08999-2_5">[1]</a></td>
-                <td>19.69</td>
-                <td>20.27</td>
-                <td>6.21</td>
-                <td>4.23</td>
-            </tr>
-            <tr>
-                <td>AE <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520303169">[2]</a></td>
-                <td>32.87±1.25</td>
-                <td>31.07±1.75</td>
-                <td>7.10±0.68</td>
-                <td>5.58±0.26</td>
-            </tr>
-            <tr>
-                <td>VAE <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520303169">[2]</a></td>
-                <td>31.11±1.50</td>
-                <td>28.80±1.92</td>
-                <td>6.89±0.09</td>
-                <td>5.00±0.40</td>
-            </tr>
-            <tr>
-                <td>SVAE <a href="https://www.researchgate.net/publication/360860067_Capturing_Inter-Slice_Dependencies_of_3D_Brain_MRI-Scans_for_Unsupervised_Anomaly_Detection">[3]</a></td>
-                <td>33.32±0.14</td>
-                <td>33.14±0.20</td>
-                <td>5.76±0.44</td>
-                <td>5.04±0.13</td>
-            </tr>
-            <tr>
-                <td>DAE <a href="https://proceedings.mlr.press/v172/kascenas22a.html">[4]</a></td>
-                <td>37.05±1.42</td>
-                <td>44.99±1.72</td>
-                <td>3.56±0.91</td>
-                <td>5.35±0.45</td>
-            </tr>
-            <tr>
-                <td>f-AnoGAN <a href="https://pubmed.ncbi.nlm.nih.gov/30831356/">[5]</a></td>
-                <td>24.16±2.94</td>
-                <td>22.05±3.05</td>
-                <td>4.18±1.18</td>
-                <td>4.01±0.90</td>
-            </tr>
-            <tr>
-                <td>DDPM <a href="https://www.mdpi.com/2079-8954/11/9/484">[6]</a></td>
-                <td>40.67±1.21</td>
-                <td>49.78±1.02</td>
-                <td>6.42±1.60</td>
-                <td>7.44±0.52</td>
-            </tr>
-            <tr>
-                <td>mDDPM <a href="https://link.springer.com/chapter/10.1007/978-3-031-45673-2_37">[7]</a></td>
-                <td><u>51.31±0.66</u></td>
-                <td><u>57.09±0.94</u></td>
-                <td>8.08±0.70</td>
-                <td>9.06±0.62</td>
-            </tr>
-            <tr>
-                <td>pDDPM <a href="https://proceedings.mlr.press/v227/behrendt24a.html">[8]</a></td>
-                <td>49.41±0.66</td>
-                <td>54.76±0.83</td>
-                <td><u>10.65±1.05</u></td>
-                <td><u>10.37±0.51</u></td>
-            </tr>
-            <tr class="highlight">
-                <td>pDDPM-IQA (ours)</td>
-                <td><strong>59.45±0.37</strong></td>
-                <td><strong>62.99±0.37</strong></td>
-                <td><strong>12.93±0.67</strong></td>
-                <td><strong>11.51±0.50</strong></td>
-            </tr>
-        </tbody>
-        <tfoot>
-<!--            <tr>-->
-<!--                <td colspan="5">References are indicated by the numbers in square brackets linked to the actual citations.</td>-->
-<!--            </tr>-->
-        </tfoot>
-    </table>
-</body>
+<!-- =====================  RESULTS  ===================== -->
+<h2 class="title is-3" id="results">Results</h2>
+
+<!-- ===== 1. System validation ===== -->
+<h3 class="title is-4">1&nbsp;&nbsp;System Validation</h3>
+<p>
+  Before launching autonomous optimisation campaigns, we verified that the
+  hardware delivered accurate liquid handling, stable temperature control,
+  and reproducible LCST measurements.
+  Figure&nbsp;2 summarises these tests.
+</p>
+
+<figure class="image">
+  <img src="./static/images/figure2.png"
+       alt="Accuracy of liquid dispensing, temperature stability and LCST repeatability">
+  <figcaption class="has-text-justified">
+    <strong>Figure&nbsp;2&nbsp;|&nbsp;Platform validation.</strong>
+    (A)&nbsp;Dispensed&nbsp;vs.&nbsp;commanded volumes show excellent linearity
+    (<em>R</em><sup>2</sup> = 0.998).
+    (B)&nbsp;Temperature regulation across the experimental range
+    exhibits an average standard deviation of&nbsp;0.30 °C.
+    (C)&nbsp;Five independent modules yield an average LCST of&nbsp;30.59 ± 0.15 °C,
+    confirming measurement repeatability.
+  </figcaption>
+</figure>
+<br>
+
+<!-- ===== 2. Two-salt optimisation ===== -->
+<h3 class="title is-4">2&nbsp;&nbsp;Closed-Loop Optimisation in a Two-Salt Space</h3>
+<p>
+  Guided by a Gaussian-process surrogate and an expected-improvement
+  acquisition function, the platform converged on a 26 °C LCST target for a
+  NaCl–NaBr system within three experimental rounds (Figure&nbsp;3).
+</p>
+
+<figure class="image">
+  <img src="./static/images/figure3.png"
+       alt="Two-salt Bayesian optimisation trajectory">
+  <figcaption class="has-text-justified">
+    <strong>Figure&nbsp;3&nbsp;|&nbsp;Bayesian optimisation in the NaCl–NaBr
+    composition space.</strong>
+    The EI landscape (right) steers the second-round experiment
+    (cross) to the vicinity of the 26 °C contour, and the third-round
+    candidate (star) reaches the target with an LCST of&nbsp;26.08 ± 0.19 °C.
+  </figcaption>
+</figure>
+
+<!-- table: two-salt -->
+<table class="table is-fullwidth is-striped is-hoverable">
+  <caption>Table&nbsp;1&nbsp;|&nbsp;Two-salt optimisation trajectory.</caption>
+  <thead>
+    <tr>
+      <th>Round</th><th>NaCl (mol L<sup>-1</sup>)</th><th>NaBr (mol L<sup>-1</sup>)</th>
+      <th>Measured LCST (°C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>0.300</td><td>0.500</td><td>24.55 ± 0.18</td></tr>
+    <tr><td>2</td><td>0.452</td><td>0.796</td><td>25.70 ± 0.18</td></tr>
+    <tr class="has-background-success-light"><td>3</td><td>0.748</td><td>0.380</td><td>26.08 ± 0.19</td></tr>
+  </tbody>
+</table>
+<br>
+
+<!-- ===== 3. Three-salt optimisation ===== -->
+<h3 class="title is-4">3&nbsp;&nbsp;Exploration of a Three-Salt Space</h3>
+<p>
+  Extending to NaCl–NaBr–CaCl<sub>2</sub> compositions increased the design
+  dimensionality from&nbsp;2&nbsp;to&nbsp;3.
+  A composite kernel (linear + RBF + Matern) captured both global trends and
+  local interactions, enabling rapid convergence to 25 °C and 27 °C LCST
+  targets (Figure&nbsp;4).
+</p>
+
+<figure class="image">
+  <img src="./static/images/figure4.png"
+       alt="Three-salt optimisation and EI landscapes">
+  <figcaption class="has-text-justified">
+    <strong>Figure&nbsp;4&nbsp;|&nbsp;Autonomous optimisation in the
+    three-salt space.</strong>
+    (A) Trajectories for 25 °C (blue) and 27 °C (red) targets.
+    (B,C,E,F) Representative EI heat maps show how the algorithm balances
+    exploitation and exploration to identify promising compositions.
+  </figcaption>
+</figure>
+
+<!-- table: three-salt -->
+<table class="table is-fullwidth is-striped is-hoverable">
+  <caption>Table&nbsp;2&nbsp;|&nbsp;Representative three-salt optimisation
+  data (27 °C target).</caption>
+  <thead>
+    <tr>
+      <th>Round</th>
+      <th>NaCl</th><th>NaBr</th><th>CaCl<sub>2</sub></th>
+      <th>Measured&nbsp;LCST (°C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>0.300</td><td>0.300</td><td>0.050</td><td>28.06 ± 0.20</td></tr>
+    <tr><td>2</td><td>0.250</td><td>0.450</td><td>0.100</td><td>25.92 ± 0.22</td></tr>
+    <tr class="has-background-success-light"><td>3</td><td>0.275</td><td>0.400</td><td>0.075</td><td>26.83 ± 0.18</td></tr>
+  </tbody>
+</table>
+<br>
+
+<!-- ===== 4. Verification campaign ===== -->
+<h3 class="title is-4">4&nbsp;&nbsp;Five-Round Verification Campaign</h3>
+<p>
+  A final five-round campaign (Figure&nbsp;5) demonstrated that the SDL can
+  recover from exploratory “misses” and self-correct to hit the 25 °C target,
+  underscoring the robustness of the exploration–exploitation strategy.
+</p>
+
+<figure class="image">
+  <img src="./static/images/figure5.png"
+       alt="Verification campaign trajectory and uncertainty maps">
+  <figcaption class="has-text-justified">
+    <strong>Figure&nbsp;5&nbsp;|&nbsp;Verification of self-correction.</strong>
+    The algorithm deliberately sampled a high-uncertainty regime
+    (round&nbsp;5, orange diamond) before converging on a final hit
+    (round&nbsp;7, yellow star), assisted by updated EI and uncertainty maps.
+  </figcaption>
+</figure>
+<!-- ===================================================== -->
 
 <!-- insert figure here -->
- <br><br><br>
-            <div style="text-align: center;">
-    <p>
-        <img src="./static/images/results.png" alt="results image" style="display: block; margin-left: auto; margin-right: auto;"/>
-    </p>
-    <p>Qualitative visualization on the BraTS21 test set. Columns 2-5 show anomaly maps from different methods for three samples.</p>
-</div>
+<!-- <br><br><br>-->
+<!--            <div style="text-align: center;">-->
+<!--    <p>-->
+<!--        <img src="./static/images/results.png" alt="results image" style="display: block; margin-left: auto; margin-right: auto;"/>-->
+<!--    </p>-->
+<!--    <p>Qualitative visualization on the BraTS21 test set. Columns 2-5 show anomaly maps from different methods for three samples.</p>-->
+<!--</div>-->
 
     <!--/ Abstract. -->
 
@@ -578,14 +576,7 @@ The final anomaly map is thresholded for segmentation, with performance measured
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{pan2024rethinkingmedicalanomalydetection,
-      title={Rethinking Medical Anomaly Detection in Brain MRI: An Image Quality Assessment Perspective},
-      author={Zixuan Pan and Jun Xia and Zheyu Yan and Guoyue Xu and Yawen Wu and Zhenge Jia and Jianxu Chen and Yiyu Shi},
-      year={2024},
-      eprint={2408.08228},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV},
-      url={https://arxiv.org/abs/2408.08228},
+    <pre><code>@misc{,
 }</code></pre>
   </div>
 </section>
@@ -609,6 +600,20 @@ The final anomaly map is thresholded for segmentation, with performance measured
             This website is licensed under a <a rel="license"
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template credit to  <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+ke 4.0 International License</a>.
           </p>
           <p>
             Website template credit to  <a
