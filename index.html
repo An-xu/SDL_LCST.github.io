@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rethinking Medical Anomaly Detection in Brain
+MRI: An Image Quality Assessment Perspective</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--<nav class="navbar" role="navigation" aria-label="main navigation">-->
+<!--  <div class="navbar-brand">-->
+<!--    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--    </a>-->
+<!--  </div>-->
+<!--  <div class="navbar-menu">-->
+<!--    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
+<!--      <a class="navbar-item" href="https://keunhong.com">-->
+<!--      <span class="icon">-->
+<!--          <i class="fas fa-home"></i>-->
+<!--      </span>-->
+<!--      </a>-->
+
+<!--      <div class="navbar-item has-dropdown is-hoverable">-->
+<!--        <a class="navbar-link">-->
+<!--          More Research-->
+<!--        </a>-->
+<!--        <div class="navbar-dropdown">-->
+<!--          <a class="navbar-item" href="https://hypernerf.github.io">-->
+<!--            HyperNeRF-->
+<!--          </a>-->
+<!--          <a class="navbar-item" href="https://nerfies.github.io">-->
+<!--            Nerfies-->
+<!--          </a>-->
+<!--          <a class="navbar-item" href="https://latentfusion.github.io">-->
+<!--            LatentFusion-->
+<!--          </a>-->
+<!--          <a class="navbar-item" href="https://photoshape.github.io">-->
+<!--            PhotoShape-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Rethinking Medical Anomaly Detection in Brain MRI: An Image Quality Assessment Perspective</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en">Zixuan Pan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=K4JXEHUAAAAJ&hl=zh-CN">Jun Xia</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=n8TM_YQAAAAJ&hl=en">Zheyu Yan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=ntl9gCYAAAAJ&hl=zh-CN">Guoyue Xu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=73k09jEAAAAJ&hl=en">Yawen Wu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://zhengejia.github.io">Zhenge Jia</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.isas.de/en/the-institute/people/1569-jianxu-chen">Jianxu Chen</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www3.nd.edu/~scl/index.html#director">Yiyu Shi</a><sup>1</sup>
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Notre Dame,</span>
+            <span class="author-block"><sup>2</sup>Shandong University</span>
+            <span class="author-block"><sup>3</sup>Leibniz-Institut für Analytische Wissenschaften - ISAS e.V.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://arxiv.org/pdf/2011.12948"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Paper</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2408.08228"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zx-pan/MedAnomalyDetection-IQA?tab=readme-ov-file"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zx-pan/MedAnomalyDetection-IQA?tab=readme-ov-file#data"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--</section>-->
+
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="hero-body">-->
+<!--      <video id="teaser" autoplay muted loop playsinline height="100%">-->
+<!--        <source src="./static/videos/teaser.mp4"-->
+<!--                type="video/mp4">-->
+<!--      </video>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into-->
+<!--        free-viewpoint-->
+<!--        portraits.-->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<!--<section class="hero is-light is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <div id="results-carousel" class="carousel results-carousel">-->
+<!--        <div class="item item-steve">-->
+<!--          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/steve.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-chair-tp">-->
+<!--          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/chair-tp.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-shiba">-->
+<!--          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/shiba.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-fullbody">-->
+<!--          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/fullbody.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-blueshirt">-->
+<!--          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/blueshirt.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-mask">-->
+<!--          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/mask.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-coffee">-->
+<!--          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/coffee.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-toby">-->
+<!--          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/toby2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Anomaly detection in brain MRI is crucial for identifying abnormalities such as tumors. Reconstruction-based methods, particularly those utilizing autoencoders, have been prevalent in this area.
+While much of the existing work has focused on meticulously designing models and algorithms, we revisit the problem of reconstruction-based anomaly detection in brain MRI from an image quality assessment perspective—an underexplored aspect in this field.
+We propose a fusion quality loss function that combines Structural Similarity Index Measure loss with ℓ<sub>1</sub> loss, offering a more comprehensive evaluation of reconstruction quality. Additionally, we introduce a dataset pre-processing strategy that enhances the average intensity ratio between normal and abnormal regions,  improving the distinction of anomalies. Our method achieves state-of-the-art performance on the BraTS21 (T2, FLAIR) and MSULB datasets, demonstrating significant improvements (>10%) in both Dice coefficient (DICE) and Area Under the Precision-Recall Curve (AUPRC) compared to existing methods. This work highlights the importance of comprehensive image quality assessment in medical anomaly detection and provides a new perspective for future research in this field.
+          </p>
+          <!-- insert figure here -->
+          <p>
+            <img src="./static/images/model.png" alt="model image."/>
+
+          </p>
+          Overview of our reconstruction-based anomaly detection method using a denoising autoencoder (DAE) as the reconstruction model.
+During training, the normal dataset X<sub>n</sub> is augmented with the proposed AIR enhancement pre-processinig strategy and corrupted to form the noisy normal dataset X<sub>n</sub>&prime; using simplex noise.
+The model is then trained by denoising X<sub>n</sub> and minimizing the fusion quality loss L<sub>FQ</sub> between the reconstruction <span style="position: relative; display: inline-block;">
+    <span style="position: absolute; top: -10px; left: 2px;">&Hat;</span>
+    X<sub>n</sub>
+</span> and the original normal dataset X<sub>n</sub>. During inference, the abnormal test dataset X<sub>a</sub> undergoes the same process.
+The anomalies in X<sub>a</sub> are expected to be poorly reconstructed, resulting in higher values in the L<sub>FQ</sub>-based anomaly map.
+The final anomaly map is thresholded for segmentation, with performance measured by DICE and AUPRC.
+        </div>
+      </div>
+    </div>
+    <!DOCTYPE html>
+
+<!-- adding subtitle -->
+      <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+<h2 class="title is-3">Results</h2>
+<head>
+    <title>Table Conversion</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        caption {
+            caption-side: top;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        .highlight {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Comparison with baselines in terms of DICE and AUPRC on BraTS21 and MSLUB using T2 modality in a <strong>cross-dataset</strong> setting. The model is trained on the IXI dataset, which contains only healthy samples. The best results for a given metric/dataset are bolded, and the second-best are underlined.</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">Method</th>
+                <th colspan="2">BraTS21 (T2)</th>
+                <th colspan="2">MSLUB (T2)</th>
+            </tr>
+            <tr>
+                <th>DICE [%]</th>
+                <th>AUPRC [%]</th>
+                <th>DICE [%]</th>
+                <th>AUPRC [%]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Thresh <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-08999-2_5">[1]</a></td>
+                <td>19.69</td>
+                <td>20.27</td>
+                <td>6.21</td>
+                <td>4.23</td>
+            </tr>
+            <tr>
+                <td>AE <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520303169">[2]</a></td>
+                <td>32.87±1.25</td>
+                <td>31.07±1.75</td>
+                <td>7.10±0.68</td>
+                <td>5.58±0.26</td>
+            </tr>
+            <tr>
+                <td>VAE <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520303169">[2]</a></td>
+                <td>31.11±1.50</td>
+                <td>28.80±1.92</td>
+                <td>6.89±0.09</td>
+                <td>5.00±0.40</td>
+            </tr>
+            <tr>
+                <td>SVAE <a href="https://www.researchgate.net/publication/360860067_Capturing_Inter-Slice_Dependencies_of_3D_Brain_MRI-Scans_for_Unsupervised_Anomaly_Detection">[3]</a></td>
+                <td>33.32±0.14</td>
+                <td>33.14±0.20</td>
+                <td>5.76±0.44</td>
+                <td>5.04±0.13</td>
+            </tr>
+            <tr>
+                <td>DAE <a href="https://proceedings.mlr.press/v172/kascenas22a.html">[4]</a></td>
+                <td>37.05±1.42</td>
+                <td>44.99±1.72</td>
+                <td>3.56±0.91</td>
+                <td>5.35±0.45</td>
+            </tr>
+            <tr>
+                <td>f-AnoGAN <a href="https://pubmed.ncbi.nlm.nih.gov/30831356/">[5]</a></td>
+                <td>24.16±2.94</td>
+                <td>22.05±3.05</td>
+                <td>4.18±1.18</td>
+                <td>4.01±0.90</td>
+            </tr>
+            <tr>
+                <td>DDPM <a href="https://www.mdpi.com/2079-8954/11/9/484">[6]</a></td>
+                <td>40.67±1.21</td>
+                <td>49.78±1.02</td>
+                <td>6.42±1.60</td>
+                <td>7.44±0.52</td>
+            </tr>
+            <tr>
+                <td>mDDPM <a href="https://link.springer.com/chapter/10.1007/978-3-031-45673-2_37">[7]</a></td>
+                <td><u>51.31±0.66</u></td>
+                <td><u>57.09±0.94</u></td>
+                <td>8.08±0.70</td>
+                <td>9.06±0.62</td>
+            </tr>
+            <tr>
+                <td>pDDPM <a href="https://proceedings.mlr.press/v227/behrendt24a.html">[8]</a></td>
+                <td>49.41±0.66</td>
+                <td>54.76±0.83</td>
+                <td><u>10.65±1.05</u></td>
+                <td><u>10.37±0.51</u></td>
+            </tr>
+            <tr class="highlight">
+                <td>pDDPM-IQA (ours)</td>
+                <td><strong>59.45±0.37</strong></td>
+                <td><strong>62.99±0.37</strong></td>
+                <td><strong>12.93±0.67</strong></td>
+                <td><strong>11.51±0.50</strong></td>
+            </tr>
+        </tbody>
+        <tfoot>
+<!--            <tr>-->
+<!--                <td colspan="5">References are indicated by the numbers in square brackets linked to the actual citations.</td>-->
+<!--            </tr>-->
+        </tfoot>
+    </table>
+</body>
+
+<!-- insert figure here -->
+ <br><br><br>
+            <div style="text-align: center;">
+    <p>
+        <img src="./static/images/results.png" alt="results image" style="display: block; margin-left: auto; margin-right: auto;"/>
+    </p>
+    <p>Qualitative visualization on the BraTS21 test set. Columns 2-5 show anomaly maps from different methods for three samples.</p>
+</div>
+
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3">Video</h2>-->
+<!--        <div class="publication-video">-->
+<!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
+<!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!--/ Paper video. -->
+<!--  </div>-->
+<!--</section>-->
+
+
+<!--<section class="section">-->
+<!--  <div class="container is-max-desktop">-->
+
+<!--    <div class="columns is-centered">-->
+
+<!--      &lt;!&ndash; Visual Effects. &ndash;&gt;-->
+<!--      <div class="column">-->
+<!--        <div class="content">-->
+<!--          <h2 class="title is-3">Visual Effects</h2>-->
+<!--          <p>-->
+<!--            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect-->
+<!--            would be impossible without nerfies since it would require going through a wall.-->
+<!--          </p>-->
+<!--          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/dollyzoom-stacked.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash;/ Visual Effects. &ndash;&gt;-->
+
+<!--      &lt;!&ndash; Matting. &ndash;&gt;-->
+<!--      <div class="column">-->
+<!--        <h2 class="title is-3">Matting</h2>-->
+<!--        <div class="columns is-centered">-->
+<!--          <div class="column content">-->
+<!--            <p>-->
+<!--              As a byproduct of our method, we can also solve the matting problem by ignoring-->
+<!--              samples that fall outside of a bounding box during rendering.-->
+<!--            </p>-->
+<!--            <video id="matting-video" controls playsinline height="100%">-->
+<!--              <source src="./static/videos/matting.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-full-width">-->
+<!--        <h2 class="title is-3">Animation</h2>-->
+
+<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
+<!--        <h3 class="title is-4">Interpolating states</h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We can also animate the scene by interpolating the deformation latent codes of two input-->
+<!--            frames. Use the slider here to linearly interpolate between the left frame and the right-->
+<!--            frame.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="columns is-vcentered interpolation-panel">-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_start.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolate start reference image."/>-->
+<!--            <p>Start Frame</p>-->
+<!--          </div>-->
+<!--          <div class="column interpolation-video-column">-->
+<!--            <div id="interpolation-image-wrapper">-->
+<!--              Loading...-->
+<!--            </div>-->
+<!--            <input class="slider is-fullwidth is-large is-info"-->
+<!--                   id="interpolation-slider"-->
+<!--                   step="1" min="0" max="100" value="0" type="range">-->
+<!--          </div>-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_end.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolation end reference image."/>-->
+<!--            <p class="is-bold">End Frame</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <br/>-->
+<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
+
+<!--        &lt;!&ndash; Re-rendering. &ndash;&gt;-->
+<!--        <h3 class="title is-4">Re-rendering the input video</h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel-->
+<!--            viewpoint such as a stabilized camera by playing back the training deformations.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="content has-text-centered">-->
+<!--          <video id="replay-video"-->
+<!--                 controls-->
+<!--                 muted-->
+<!--                 preload-->
+<!--                 playsinline-->
+<!--                 width="75%">-->
+<!--            <source src="./static/videos/replay.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;/ Re-rendering. &ndash;&gt;-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/ Animation. &ndash;&gt;-->
+
+
+<!--    &lt;!&ndash; Concurrent Work. &ndash;&gt;-->
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-full-width">-->
+<!--        <h2 class="title is-3">Related Links</h2>-->
+
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            There's a lot of excellent work that was introduced around the same time as ours.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>-->
+<!--            both use deformation fields to model non-rigid scenes.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{pan2024rethinkingmedicalanomalydetection,
+      title={Rethinking Medical Anomaly Detection in Brain MRI: An Image Quality Assessment Perspective},
+      author={Zixuan Pan and Jun Xia and Zheyu Yan and Guoyue Xu and Yawen Wu and Zhenge Jia and Jianxu Chen and Yiyu Shi},
+      year={2024},
+      eprint={2408.08228},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2408.08228},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+<!--      <a class="icon-link"-->
+<!--         href="./static/videos/nerfies_paper.pdf">-->
+<!--        <i class="fas fa-file-pdf"></i>-->
+<!--      </a>-->
+      <a class="icon-link" href="https://github.com/zx-pan/MedAnomalyDetection-IQA?tab=readme-ov-file" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template credit to  <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
